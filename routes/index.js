@@ -7,7 +7,7 @@ var createExamples = require('../lib/create-examples');
 /* GET Index page */
 router.get('/', function (req, res) {
     var authUrl = liveConnect.getAuthUrl();
-    res.render('index', { title: 'OneNote API Node.js Sample', authUrl: authUrl});
+    res.render('index', { title: 'PowerTweet!', authUrl: authUrl});
 });
 
 /* POST Create example request */
@@ -50,20 +50,8 @@ router.post('/', function (req, res) {
 
     // Request the specified create example
     switch (exampleType) {
-        case 'text':
-            createExamples.createPageWithSimpleText(accessToken, createResultCallback);
-            break;
-        case 'textimage':
-            createExamples.createPageWithTextAndImage(accessToken, createResultCallback);
-            break;
-        case 'html':
-            createExamples.createPageWithScreenshotFromHtml(accessToken, createResultCallback);
-            break;
-        case 'url':
-            createExamples.createPageWithScreenshotFromUrl(accessToken, createResultCallback);
-            break;
-        case 'file':
-            createExamples.createPageWithFile(accessToken, createResultCallback);
+        case 'savetweets':
+            createExamples.createPageWithSavedTweets(accessToken, createResultCallback);
             break;
     }
 });
